@@ -16,7 +16,7 @@ public class FlightReader {
     }
 
     public Flight read() {
-        System.out.println("--Datos del pasajero--");
+        System.out.println("--Datos del vuelo--");
         System.out.println("Número de vuelo:");
         int flightNumber = scanner.nextInt();
         scanner.nextLine();

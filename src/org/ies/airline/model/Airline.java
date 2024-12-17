@@ -16,11 +16,43 @@ public class Airline {
         for (var flight: flights) {
             if (flight.getOrigin().equals(origin)) {
                 System.out.println(flight);
+            }else {
+                System.out.println("No hay ningun vuelo desde ese origen");
             }
         }
-
     }
 
+    public Flight findFlight(int flightNumber) {
+        for (var flight: flights) {
+            if (flight.getFlightNumber() == flightNumber) {
+                return flight;
+            }
+        }
+        return null;
+    }
+
+    public void showPassengerFlights(String nif) {
+        for (var flight:flights) {
+            if (flight.hasPassenger(nif)) {
+                System.out.println(flight);
+            }else {
+                System.out.println("Pasajero sin vuelo");
+            }
+        }
+    }
+
+    public int getPassengerSeat(int flightNumber, String nif) {
+        var flight = findFlight(flightNumber);
+        var passenger = flight.findPassenger(nif);
+        if (passenger != null) {
+            return passenger.getSeatNumber();
+        } else if (passenger == null) {
+            System.out.println("Pasajero no encontrado");
+        } else if (flight == null) {
+            System.out.println("Vuelo no encontrado");
+        }
+        return null;
+    }
 
     public void showInfo() {
         System.out.println("Nombre:" + name);

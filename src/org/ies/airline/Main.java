@@ -15,6 +15,8 @@ public class Main {
 
         var airline = airlineReader.read();
 
-        airline.showFlightsFromOrigin("madrid");
+        var seat = airline.getPassengerSeat(1, "1234");
+
+        System.out.println(seat);
     }
 }

@@ -41,17 +41,32 @@ public class Airline {
         }
     }
 
-    public int getPassengerSeat(int flightNumber, String nif) {
+    public Integer getPassengerSeat(int flightNumber, String nif) {
         var flight = findFlight(flightNumber);
-        var passenger = flight.findPassenger(nif);
-        if (passenger != null) {
-            return passenger.getSeatNumber();
-        } else if (passenger == null) {
-            System.out.println("Pasajero no encontrado");
-        } else if (flight == null) {
+        if (flight == null) {
+            return null;
+        } else {
+            var passenger = flight.findPassenger(nif);
+            if (passenger != null) {
+                return passenger.getSeatNumber();
+            } else {
+                return null;
+            }
+        }
+    }
+
+    public void updateSeatNumber(int flightNumber, String nif, int seatNumber) {
+        var flight = findFlight(flightNumber);
+        if (flight != null) {
+            var passenger = flight.findPassenger(nif);
+            if (passenger != null) {
+                passenger.setSeatNumber(seatNumber);
+            }else {
+                System.out.println("Pasajero no encontrado");
+            }
+        } else {
             System.out.println("Vuelo no encontrado");
         }
-        return null;
     }
 
     public void showInfo() {

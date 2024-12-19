@@ -1,5 +1,6 @@
 package org.ies.airline;
 
+import org.ies.airline.components.AirlineApp;
 import org.ies.airline.components.AirlineReader;
 import org.ies.airline.components.FlightReader;
 import org.ies.airline.components.PassengerReader;
@@ -12,11 +13,10 @@ public class Main {
         var passengerReader = new PassengerReader(scanner);
         var flightReader = new FlightReader(scanner, passengerReader);
         var airlineReader = new AirlineReader(scanner, flightReader);
+        var airlinApp = new AirlineApp(scanner, airlineReader);
 
-        var airline = airlineReader.read();
+        airlinApp.run();
 
-        var seat = airline.getPassengerSeat(1, "1234");
 
-        System.out.println(seat);
     }
 }

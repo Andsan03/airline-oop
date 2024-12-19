@@ -34,7 +34,7 @@ public class Airline {
     public void showPassengerFlights(String nif) {
         for (var flight:flights) {
             if (flight.hasPassenger(nif)) {
-                System.out.println(flight);
+                flight.showINfo();
             }else {
                 System.out.println("Pasajero sin vuelo");
             }

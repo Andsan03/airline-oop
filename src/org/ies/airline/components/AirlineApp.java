@@ -37,6 +37,7 @@ public class AirlineApp {
 
                 passenger.setSeatNumber(seatNumber);
                 var seat = passenger.getSeatNumber();
+                scanner.nextLine();
 
                 System.out.println(seat);
             }
